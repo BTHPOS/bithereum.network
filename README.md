@@ -1,4 +1,5 @@
 # Bithereum Website
+Bithereum aims to do what no other hard fork has done, by fusing the visions of both Bitcoin and Ethereum, ultimately revolutionizing mining, improving scalability, and increasing network consensus.
 
 ## Dependencies
 - NPM 
