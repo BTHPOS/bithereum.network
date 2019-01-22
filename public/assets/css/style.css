@@ -277,7 +277,7 @@ section[data-name="hardspork"] {
       padding: 1.5rem 2.5rem;
       max-width: 14rem;
       width: 90%;
-      min-height: 10rem;
+      min-height: 12rem;
       border: 0.05rem solid #FFC345;
       border-radius: 0.5rem; }
       section[data-name="hardspork"] div[data-name="points"] div[data-name="point"] strong {
@@ -498,7 +498,7 @@ section[data-name="ecosystem"] {
       opacity: 0.9; }
     section[data-name="ecosystem"] div[data-name="integrations"].expand div[data-name="bithereum"] {
       animation: pop 1.1s, pulse 3s infinite; }
-    section[data-name="ecosystem"] div[data-name="integrations"].expand div[data-name="trezor"] {
+    section[data-name="ecosystem"] div[data-name="integrations"].expand div[data-name="p2p"] {
       left: 10%;
       top: 0;
       animation: float 4.1s infinite; }
@@ -554,13 +554,14 @@ section[data-name="ecosystem"] {
       left: 40%;
       position: absolute;
       z-index: 1; }
-    section[data-name="ecosystem"] div[data-name="integrations"] div[data-name="trezor"] {
+    section[data-name="ecosystem"] div[data-name="integrations"] div[data-name="p2p"] {
       background-position: center center;
       background-size: contain;
       background-repeat: no-repeat;
-      background-image: url(/assets/images/integration-trezor.png);
+      background-image: url(/assets/images/integration-p2p.jpg);
       width: 5rem;
       height: 5rem;
+      border-radius: 5rem;
       position: absolute; }
     section[data-name="ecosystem"] div[data-name="integrations"] div[data-name="instantbitex"] {
       background-position: center center;
@@ -903,7 +904,8 @@ section[data-name="resource-section"] div[data-name="subsection"] {
         background-color: #FFC345;
         display: inline-block;
         margin: 0 0.2rem; }
-        section[data-name="resources"] div[data-name="subsection"] div[data-name="indicators"] div[data-name="indicator"] span[data-status="now-trading"],
+        section[data-name="resources"] div[data-name="subsection"] div[data-name="indicators"] div[data-name="indicator"] span[data-status="available"], section[data-name="resources"] div[data-name="subsection"] div[data-name="indicators"] div[data-name="indicator"] span[data-status="now-trading"],
+        section[data-name="resource-section"] div[data-name="subsection"] div[data-name="indicators"] div[data-name="indicator"] span[data-status="available"],
         section[data-name="resource-section"] div[data-name="subsection"] div[data-name="indicators"] div[data-name="indicator"] span[data-status="now-trading"] {
           background-color: #00FF1B; }
   section[data-name="resources"] div[data-name="subsection"] div[data-name="pools"],
@@ -966,7 +968,8 @@ section[data-name="resource-section"] div[data-name="subsection"] {
           background-color: #FFC345;
           display: inline-block;
           margin: 0 0.2rem; }
-          section[data-name="resources"] div[data-name="subsection"] div[data-name="exchanges"] div[data-name="exchange"] span span[data-status="now-trading"],
+          section[data-name="resources"] div[data-name="subsection"] div[data-name="exchanges"] div[data-name="exchange"] span span[data-status="available"], section[data-name="resources"] div[data-name="subsection"] div[data-name="exchanges"] div[data-name="exchange"] span span[data-status="now-trading"],
+          section[data-name="resource-section"] div[data-name="subsection"] div[data-name="exchanges"] div[data-name="exchange"] span span[data-status="available"],
           section[data-name="resource-section"] div[data-name="subsection"] div[data-name="exchanges"] div[data-name="exchange"] span span[data-status="now-trading"] {
             background-color: #00FF1B; }
   section[data-name="resources"] div[data-name="subsection"] div[data-name="wallets"],
@@ -992,7 +995,23 @@ section[data-name="resource-section"] div[data-name="subsection"] {
         background-repeat: no-repeat; }
       section[data-name="resources"] div[data-name="subsection"] div[data-name="wallets"] div[data-name="wallet"] span,
       section[data-name="resource-section"] div[data-name="subsection"] div[data-name="wallets"] div[data-name="wallet"] span {
-        font-size: 0.9rem; }
+        font-size: 0.9rem;
+        position: relative; }
+        section[data-name="resources"] div[data-name="subsection"] div[data-name="wallets"] div[data-name="wallet"] span span,
+        section[data-name="resource-section"] div[data-name="subsection"] div[data-name="wallets"] div[data-name="wallet"] span span {
+          left: -1.1rem;
+          top: 0.35rem;
+          position: absolute;
+          width: 0.5rem;
+          height: 0.5rem;
+          border-radius: 0.5rem;
+          background-color: #FFC345;
+          display: inline-block;
+          margin: 0 0.2rem; }
+          section[data-name="resources"] div[data-name="subsection"] div[data-name="wallets"] div[data-name="wallet"] span span[data-status="available"], section[data-name="resources"] div[data-name="subsection"] div[data-name="wallets"] div[data-name="wallet"] span span[data-status="now-trading"],
+          section[data-name="resource-section"] div[data-name="subsection"] div[data-name="wallets"] div[data-name="wallet"] span span[data-status="available"],
+          section[data-name="resource-section"] div[data-name="subsection"] div[data-name="wallets"] div[data-name="wallet"] span span[data-status="now-trading"] {
+            background-color: #00FF1B; }
   section[data-name="resources"] div[data-name="subsection"] div[data-name="explorers"],
   section[data-name="resource-section"] div[data-name="subsection"] div[data-name="explorers"] {
     text-align: center; }
@@ -1017,4 +1036,20 @@ section[data-name="resource-section"] div[data-name="subsection"] {
         background-repeat: no-repeat; }
       section[data-name="resources"] div[data-name="subsection"] div[data-name="explorers"] div[data-name="explorer"] span,
       section[data-name="resource-section"] div[data-name="subsection"] div[data-name="explorers"] div[data-name="explorer"] span {
-        font-size: 0.9rem; }
+        font-size: 0.9rem;
+        position: relative; }
+        section[data-name="resources"] div[data-name="subsection"] div[data-name="explorers"] div[data-name="explorer"] span span,
+        section[data-name="resource-section"] div[data-name="subsection"] div[data-name="explorers"] div[data-name="explorer"] span span {
+          left: -1.1rem;
+          top: 0.35rem;
+          position: absolute;
+          width: 0.5rem;
+          height: 0.5rem;
+          border-radius: 0.5rem;
+          background-color: #FFC345;
+          display: inline-block;
+          margin: 0 0.2rem; }
+          section[data-name="resources"] div[data-name="subsection"] div[data-name="explorers"] div[data-name="explorer"] span span[data-status="available"], section[data-name="resources"] div[data-name="subsection"] div[data-name="explorers"] div[data-name="explorer"] span span[data-status="now-trading"],
+          section[data-name="resource-section"] div[data-name="subsection"] div[data-name="explorers"] div[data-name="explorer"] span span[data-status="available"],
+          section[data-name="resource-section"] div[data-name="subsection"] div[data-name="explorers"] div[data-name="explorer"] span span[data-status="now-trading"] {
+            background-color: #00FF1B; }
