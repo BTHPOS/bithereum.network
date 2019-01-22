@@ -1,0 +1,57 @@
+<section data-name="landing">
+    <div class="holder">
+        <div data-name="map"></div>
+        <div data-name="hero">
+            <h1>THE HARMONIZATION OF <strong>BITCOIN</strong> AND <strong>ETHEREUM</strong></h1>
+            <p>Bithereum aims to do what no other hard fork has done, by fusing the visions of both Bitcoin and Ethereum, ultimately revolutionizing mining, improving scalability, and increasing network consensus.</p>
+            <button onclick="window.open('https://github.com/BTHPOS/BTH', '_blank')">Get Started</button>
+        </div>
+        <div data-name="stats" class="holder">
+            <div data-name="stat" data-type="fullnodes">
+                <strong>0</strong>
+                <span>Full Nodes</span>
+            </div>
+            <div data-name="stat" data-type="blockheight">
+                <strong>0</strong>
+                <span>Block Height</span>
+            </div>
+            <div data-name="stat" data-type="difficulty">
+                <strong>0</strong>
+                <span>Network Difficulty</span>
+            </div>
+            <div data-name="stat" data-type="networkhashrate">
+                <strong>0</strong>
+                <span>Network Hash (KH/s)</span>
+            </div>
+        </div>
+        <div data-name="social" class="holder">
+            <a href="https://twitter.com/BithereumBTH" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/BithereumBTH" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://t.me/BithereumNetwork" target="_blank"><i class="fab fa-telegram"></i></a>
+            <a href="https://bitcointalk.org/index.php?topic=4738533.0" target="_blank"><i class="fab fa-bitcoin"></i></a>
+            <a href="https://medium.com/bithereum-network" target="_blank"><i class="fab fa-medium"></i></a>
+            <a href="https://github.com/BTHPOS" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</section>
+<script>
+  (function( $ ) {
+      "use strict";
+
+      Promise.all([
+        $.get("http://explorer.bithereum.network/api/getconnectioncount"),
+        $.get("http://explorer.bithereum.network/api/getblockcount"),
+        $.get("http://explorer.bithereum.network/api/getdifficulty"),
+        $.get("http://explorer.bithereum.network/api/getnetworkhashps")
+      ]).then(function(stats) {
+          stats = stats.map(function(stat) {
+              return parseInt(stat);
+          })
+          $("div[data-type='fullnodes'] strong").html(stats[0]);
+          $("div[data-type='blockheight'] strong").html(stats[1]);
+          $("div[data-type='difficulty'] strong").html(stats[2]);
+          $("div[data-type='networkhashrate'] strong").html((stats[3]/1000).toFixed(1));
+      })
+
+  })( jQuery )
+</script>

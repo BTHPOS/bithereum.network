@@ -50,6 +50,134 @@ var initialization = async function() {
 			}
 	});
 
+	server.route({
+		method: 'GET',
+		path: '/bounty/stakes',
+		handler: function(request, reply)
+		{
+				return reply.redirect("https://docs.google.com/spreadsheets/d/11WZwlfSV7YpnGfDm3WWTwH61QfWtL-7cvhybzHtRGMk/edit#gid=722524947");
+		}
+	});
+
+	server.route({
+		method: 'GET',
+		path: '/bounty/check',
+		handler: function(request, reply)
+		{
+				return reply.redirect("https://docs.google.com/spreadsheets/d/1mVNjigrzWPM0Zw2cxMjd0QsR5CE56ti7-H6lqfWpaps/edit?usp=sharing");
+		}
+	});
+
+	server.route({
+		method: 'GET',
+		path: '/bounty/form',
+		handler: function(request, reply)
+		{
+				return reply.redirect("https://docs.google.com/forms/d/e/1FAIpQLSfJkmKF-5SX1dM9Ne57SETBlvhX3OWyJ6dP8mSFkkAFsI1_2Q/viewform?c=0&w=1");
+		}
+	});
+
+	server.route({
+		method: 'GET',
+		path: '/bounty/join',
+		handler: function(request, reply)
+		{
+				return reply.redirect("http://t.me/BithereumBountyBot?start=start");
+		}
+	});
+
+	server.route({
+		method: 'GET',
+		path: '/whitepaper',
+		handler: function(request, reply)
+		{
+				return reply.redirect("/storage/whitepaper.pdf");
+		}
+	});
+
+	server.route({
+		method: 'GET',
+		path: '/redeem/mew',
+		handler: function(request, reply)
+		{
+				return reply.redirect("https://medium.com/@dondrey.taylor/how-to-redeem-your-bth-using-myetherwallet-97b6e0a0d250");
+		}
+	});
+
+	server.route({
+		method: 'GET',
+		path: '/redeem/metamask',
+		handler: function(request, reply)
+		{
+				return reply.redirect("https://medium.com/@dondrey.taylor/eth-holders-how-to-redeem-your-bth-using-metamask-849c381da87b");
+		}
+	});
+
+	server.route({
+		method: 'GET',
+		path: '/redeem/jaxx',
+		handler: function(request, reply)
+		{
+				return reply.redirect("https://medium.com/@dondrey.taylor/eth-holders-how-to-redeem-your-bth-using-jaxx-2dc9e9fec6de");
+		}
+	});
+
+	server.route({
+		method: 'GET',
+		path: '/redeem/ledger',
+		handler: function(request, reply)
+		{
+				return reply.redirect("https://medium.com/@dondrey.taylor/eth-holders-how-to-redeem-your-bth-using-ledger-wallet-fb9d706485dd");
+		}
+	});
+
+	server.route({
+		method: 'GET',
+		path: '/redeem/imtoken',
+		handler: function(request, reply)
+		{
+				return reply.redirect("https://medium.com/@dondrey.taylor/eth-holders-how-to-redeem-your-bth-using-imtoken-47b984f2cbe");
+		}
+	});
+
+	server.route({
+		method: 'GET',
+		path: '/redeem/trezor',
+		handler: function(request, reply)
+		{
+				return reply.redirect("https://medium.com/@dondrey.taylor/eth-holders-how-to-redeem-your-bth-using-trezor-8de9ec362e82");
+		}
+	});
+
+	server.route({
+		method: 'GET',
+		path: '/mining/form',
+		handler: function(request, reply)
+		{
+				return reply.redirect("https://docs.google.com/forms/d/e/1FAIpQLSfETri1L8RMeq9EWfCYTRIROu68-A1tSbQyVuKP-zbREwNvzQ/viewform");
+		}
+	});
+
+
+	server.route({
+		method: 'GET',
+		path: '/configurations/pool/mainnet/dc/{number}',
+		handler: function(request, reply)
+		{
+				var content = [
+						"maxgputemp 85",
+						"globalminer lolminer",
+						"stratumproxy enabled",
+						"proxywallet BDq64SKHij2b4Aiwpjwp72VCEoKeeVXZGP",
+						"proxypool1 pool.bithereum.network:3857",
+						"lolminer=flags --profile ETHOS --usercfg /var/run/ethos/lolminer_config.json --overwritePersonal BethdPoW --coin AUTO144_5",
+						"flags --cl-global-work 8192 --farm-recheck 200",
+						"globalfan 85"
+				];
+				reply(content.join("\n")).header('Content-Type', "text/plain");
+		}
+	});
+
 	// Handles public file routing
 	server.route({
 	    method: 'GET',

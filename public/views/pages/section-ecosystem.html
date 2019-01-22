@@ -1,0 +1,48 @@
+<section data-name="ecosystem">
+    <div class="holder">
+        <div data-name="points">
+            <div data-name="point">
+                <h3>AN ECOSYSTEM THAT KEEPS GROWING</h3>
+                <p>Bithereum has an amazing community and ecosystem that is full of wallets, nodes, pools, and exchanges that are widely available and consistently being added to.</p>
+                <button onclick="window.location.href = '/#!/resources'">View More</button>
+            </div>
+        </div>
+        <div data-name="integrations">
+            <div data-name="bithereum"></div>
+            <div data-name="trezor"></div>
+            <div data-name="instantbitex"></div>
+            <div data-name="ledger"></div>
+            <div data-name="bisq"></div>
+            <div data-name="guarda"></div>
+            <div data-name="lescovex"></div>
+            <div data-name="electrum"></div>
+            <div data-name="altpool"></div>
+            <div data-name="zelcore"></div>
+            <div data-name="equihub"></div>
+        </div>
+    </div>
+</section>
+<script>
+  (function( $ ) {
+      "use strict";
+
+      const $window = $(window);
+      $window.on("scroll", function() {
+          const topBuffer = 300;
+          const ecosystemSectionOffset = $('section[data-name="ecosystem"]').offset().top - topBuffer;
+          const $ecosystemIntegrations = $('section[data-name="ecosystem"] div[data-name="integrations"]');
+          if ($window.scrollTop() >= ecosystemSectionOffset) {
+              if (!$ecosystemIntegrations.hasClass("expand")) {
+                $ecosystemIntegrations.addClass("expand");
+              }
+          }
+          else {
+            if ($ecosystemIntegrations.hasClass("expand")) {
+              $ecosystemIntegrations.removeClass("expand");
+            }
+        }
+      });
+
+
+  })(jQuery)
+</script>

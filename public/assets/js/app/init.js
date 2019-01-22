@@ -16,6 +16,21 @@ config(['$locationProvider', '$interpolateProvider', '$routeProvider', function(
     // Application routing
     $routeProvider
       .when("/", {
-          templateUrl : "/views/pages/landing.html"
-      });
+          templateUrl : "/views/pages/page-landing.html"
+      })
+      .when("/faq", {
+          templateUrl : "/views/pages/page-faq.html"
+      })
+      .when("/ourteam", {
+          templateUrl : "/views/pages/page-ourteam.html"
+      })
+      .when("/resources", {
+          templateUrl : "/views/pages/page-resources.html"
+      })
+}])
+
+.run(['$rootScope', '$anchorScroll', function($rootScope, $anchorScroll) {
+    $rootScope.$on("$locationChangeSuccess", function() {
+        $anchorScroll();
+    });
 }]);
