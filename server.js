@@ -5,6 +5,7 @@ var Path    = require('path');
 var Hapi    = require('hapi');
 var Vision 	= require('vision');
 var Inert 	= require('inert');
+var got 		= require('got');
 
 // Template Engine
 var Handlerbars = require('handlebars');
@@ -47,6 +48,55 @@ var initialization = async function() {
 			handler: function(request, reply)
 			{
 					return reply.view('embed-base', {});
+			}
+	});
+
+	server.route({
+			method: 'GET',
+			path: '/api/getconnectioncount',
+			handler: function(request, reply)
+			{
+				 return new Promise(function(accept, reject) {
+					 	got("http://explorer.bithereum.network/api/getconnectioncount").then(function(response) {
+					  		accept(response.body);
+				 		});
+				});
+			}
+	});
+	server.route({
+			method: 'GET',
+			path: '/api/getblockcount',
+			handler: function(request, reply)
+			{
+				 return new Promise(function(accept, reject) {
+					  got("http://explorer.bithereum.network/api/getblockcount").then(function(response) {
+								accept(response.body);
+				 		});
+				 });
+			}
+	});
+	server.route({
+			method: 'GET',
+			path: '/api/getdifficulty',
+			handler: function(request, reply)
+			{
+				 return new Promise(function(accept, reject) {
+				 		got("http://explorer.bithereum.network/api/getdifficulty").then(function(response) {
+								accept(response.body);
+				 		});
+				 });
+			}
+	});
+	server.route({
+			method: 'GET',
+			path: '/api/getnetworkhashps',
+			handler: function(request, reply)
+			{
+				 return new Promise(function(accept, reject) {
+					 	got("http://explorer.bithereum.network/api/getnetworkhashps").then(function(response) {
+								accept(response.body);
+				 		});
+				 });
 			}
 	});
 
@@ -174,7 +224,7 @@ var initialization = async function() {
 						"flags --cl-global-work 8192 --farm-recheck 200",
 						"globalfan 85"
 				];
-				reply(content.join("\n")).header('Content-Type', "text/plain");
+				return reply(content.join("\n")).header('Content-Type', "text/plain");
 		}
 	});
 

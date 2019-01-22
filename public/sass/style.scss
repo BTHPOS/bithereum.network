@@ -2,7 +2,7 @@
 
 $mobileWidth: 45em;
 $mobileMidWidth: 55em;
-$mobileHeight: 43.75em;
+$mobileHeight: 40em;
 
 @keyframes float {
     0% {
@@ -148,7 +148,7 @@ section[data-name="landing"] {
         max-width: 25rem;
         width: 90%;
         z-index: 0;
-        padding: 3rem 0;
+        padding: 2rem 0 3rem 0;
 
         @media (max-width: $mobileWidth) {
           margin: 0 auto;
@@ -257,7 +257,7 @@ section[data-name="landing"] {
    div[data-name="social"] {
        text-align: center;
        position: absolute;
-       bottom: -3rem;
+       bottom: -1.5rem;
        padding: 2rem 0;
 
        @media (max-height: $mobileHeight) {

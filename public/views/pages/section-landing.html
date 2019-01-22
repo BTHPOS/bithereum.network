@@ -40,10 +40,10 @@
 
       const pullStats = function() {
           Promise.all([
-            $.get("http://explorer.bithereum.network/api/getconnectioncount"),
-            $.get("http://explorer.bithereum.network/api/getblockcount"),
-            $.get("http://explorer.bithereum.network/api/getdifficulty"),
-            $.get("http://explorer.bithereum.network/api/getnetworkhashps")
+            $.get("/api/getconnectioncount"),
+            $.get("/api/getblockcount"),
+            $.get("/api/getdifficulty"),
+            $.get("/api/getnetworkhashps")
           ]).then(function(stats) {
               stats = stats.map(function(stat) {
                   return parseInt(stat);
@@ -60,6 +60,6 @@
       },5000);
 
       pullStats();
-      
+
   })( jQuery )
 </script>
