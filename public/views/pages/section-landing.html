@@ -38,20 +38,28 @@
   (function( $ ) {
       "use strict";
 
-      Promise.all([
-        $.get("http://explorer.bithereum.network/api/getconnectioncount"),
-        $.get("http://explorer.bithereum.network/api/getblockcount"),
-        $.get("http://explorer.bithereum.network/api/getdifficulty"),
-        $.get("http://explorer.bithereum.network/api/getnetworkhashps")
-      ]).then(function(stats) {
-          stats = stats.map(function(stat) {
-              return parseInt(stat);
+      const pullStats = function() {
+          Promise.all([
+            $.get("http://explorer.bithereum.network/api/getconnectioncount"),
+            $.get("http://explorer.bithereum.network/api/getblockcount"),
+            $.get("http://explorer.bithereum.network/api/getdifficulty"),
+            $.get("http://explorer.bithereum.network/api/getnetworkhashps")
+          ]).then(function(stats) {
+              stats = stats.map(function(stat) {
+                  return parseInt(stat);
+              })
+              $("div[data-type='fullnodes'] strong").html(stats[0]);
+              $("div[data-type='blockheight'] strong").html(stats[1]);
+              $("div[data-type='difficulty'] strong").html(stats[2]);
+              $("div[data-type='networkhashrate'] strong").html((stats[3]/1000).toFixed(1));
           })
-          $("div[data-type='fullnodes'] strong").html(stats[0]);
-          $("div[data-type='blockheight'] strong").html(stats[1]);
-          $("div[data-type='difficulty'] strong").html(stats[2]);
-          $("div[data-type='networkhashrate'] strong").html((stats[3]/1000).toFixed(1));
-      })
+      };
 
+      setInterval(function() {
+          pullStats();
+      },5000);
+
+      pullStats();
+      
   })( jQuery )
 </script>
