@@ -224,7 +224,7 @@ var initialization = async function() {
 						"flags --cl-global-work 8192 --farm-recheck 200",
 						"globalfan 85"
 				];
-				return reply(content.join("\n")).header('Content-Type', "text/plain");
+				return reply.response(content.join("\n")).header('Content-Type', "text/plain");
 		}
 	});
 

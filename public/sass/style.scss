@@ -222,11 +222,7 @@ section[data-name="landing"] {
         bottom: 2rem;
         padding: 2rem 0;
 
-        @media (max-height: $mobileHeight) {
-            display: none;
-        }
-
-        @media (max-width: $mobileWidth) {
+        @media (max-width: $mobileWidth), (max-height: $mobileHeight) {
             display: block;
             position: relative;
             bottom: auto;
@@ -260,11 +256,7 @@ section[data-name="landing"] {
        bottom: -1.5rem;
        padding: 2rem 0;
 
-       @media (max-height: $mobileHeight) {
-           display: none;
-       }
-
-       @media (max-width: $mobileWidth) {
+       @media (max-width: $mobileWidth), (max-height: $mobileHeight) {
            display: block;
            position: relative;
            bottom: auto;

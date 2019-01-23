@@ -170,10 +170,7 @@ section[data-name="landing"] {
     position: absolute;
     bottom: 2rem;
     padding: 2rem 0; }
-    @media (max-height: 40em) {
-      section[data-name="landing"] div[data-name="stats"] {
-        display: none; } }
-    @media (max-width: 45em) {
+    @media (max-width: 45em), (max-height: 40em) {
       section[data-name="landing"] div[data-name="stats"] {
         display: block;
         position: relative;
@@ -200,10 +197,7 @@ section[data-name="landing"] {
     position: absolute;
     bottom: -1.5rem;
     padding: 2rem 0; }
-    @media (max-height: 40em) {
-      section[data-name="landing"] div[data-name="social"] {
-        display: none; } }
-    @media (max-width: 45em) {
+    @media (max-width: 45em), (max-height: 40em) {
       section[data-name="landing"] div[data-name="social"] {
         display: block;
         position: relative;
