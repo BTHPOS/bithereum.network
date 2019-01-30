@@ -269,9 +269,9 @@ section[data-name="hardspork"] {
       vertical-align: top;
       margin: 1rem 1.3rem;
       padding: 1.5rem 2.5rem;
-      max-width: 14rem;
+      max-width: 21rem;
       width: 90%;
-      min-height: 12rem;
+      min-height: 15rem;
       border: 0.05rem solid #FFC345;
       border-radius: 0.5rem; }
       section[data-name="hardspork"] div[data-name="points"] div[data-name="point"] strong {
