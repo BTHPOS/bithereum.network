@@ -27,6 +27,19 @@ html, body {
   background-color: #1D2631;
   color: #FFFFFF; }
 
+#banner {
+  background: #FFC500;
+  width: 100%;
+  min-height: 3rem;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 0.1rem; }
+  #banner p {
+    padding: 0;
+    font-size: 0.9rem; }
+  #banner a {
+    color: #000000; }
+
 header {
   width: 90%;
   position: relative;
