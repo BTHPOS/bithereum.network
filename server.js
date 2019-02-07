@@ -227,7 +227,7 @@ var initialization = async function() {
 				return reply.response(content.join("\n")).header('Content-Type', "text/plain");
 		}
 	});
-
+	
 	// Handles public file routing
 	server.route({
 	    method: 'GET',
