@@ -53,11 +53,11 @@ var initialization = async function() {
 
 	server.route({
 			method: 'GET',
-			path: '/api/getconnectioncount',
+			path: '/api/status',
 			handler: function(request, reply)
 			{
 				 return new Promise(function(accept, reject) {
-					 	got("http://explorer.bithereum.network/api/getconnectioncount").then(function(response) {
+					 	got("https://insight.bithereum.network/insight-api/status").then(function(response) {
 					  		accept(response.body);
 				 		});
 				});
@@ -227,7 +227,7 @@ var initialization = async function() {
 				return reply.response(content.join("\n")).header('Content-Type', "text/plain");
 		}
 	});
-	
+
 	// Handles public file routing
 	server.route({
 	    method: 'GET',
