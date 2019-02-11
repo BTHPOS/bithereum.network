@@ -63,42 +63,6 @@ var initialization = async function() {
 				});
 			}
 	});
-	server.route({
-			method: 'GET',
-			path: '/api/getblockcount',
-			handler: function(request, reply)
-			{
-				 return new Promise(function(accept, reject) {
-					  got("http://explorer.bithereum.network/api/getblockcount").then(function(response) {
-								accept(response.body);
-				 		});
-				 });
-			}
-	});
-	server.route({
-			method: 'GET',
-			path: '/api/getdifficulty',
-			handler: function(request, reply)
-			{
-				 return new Promise(function(accept, reject) {
-				 		got("http://explorer.bithereum.network/api/getdifficulty").then(function(response) {
-								accept(response.body);
-				 		});
-				 });
-			}
-	});
-	server.route({
-			method: 'GET',
-			path: '/api/getnetworkhashps',
-			handler: function(request, reply)
-			{
-				 return new Promise(function(accept, reject) {
-					 	got("http://explorer.bithereum.network/api/getnetworkhashps").then(function(response) {
-								accept(response.body);
-				 		});
-				 });
-			}
-	});
 
 	server.route({
 		method: 'GET',

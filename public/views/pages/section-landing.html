@@ -19,9 +19,9 @@
                 <strong>0</strong>
                 <span>Network Difficulty</span>
             </div>
-            <div data-name="stat" data-type="networkhashrate">
+            <div data-name="stat" data-type="circulating">
                 <strong>0</strong>
-                <span>Network Hash (KH/s)</span>
+                <span>Circulating Supply</span>
             </div>
         </div>
         <div data-name="social" class="holder">
@@ -43,14 +43,11 @@
           Promise.all([
             $.get("/api/status")
           ]).then(function(stats) {
-              console.log(stats);
-              // stats = stats.map(function(stat) {
-                  // return parseInt(stat);
-              // })
-              // $("div[data-type='fullnodes'] strong").html(stats[0]);
-              // $("div[data-type='blockheight'] strong").html(stats[1]);
-              // $("div[data-type='difficulty'] strong").html(stats[2]);
-              // $("div[data-type='networkhashrate'] strong").html((stats[3]/1000).toFixed(1));
+              let data = JSON.parse(stats[0]);
+              $("div[data-type='fullnodes'] strong").html(data.info.connections);
+              $("div[data-type='blockheight'] strong").html(data.info.blocks);
+              $("div[data-type='difficulty'] strong").html(data.info.difficulty.toFixed(1));
+              $("div[data-type='circulating'] strong").html(data.info.circulating.toFixed(1));
           })
       };
 
