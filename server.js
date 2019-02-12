@@ -53,6 +53,25 @@ var initialization = async function() {
 
 	server.route({
 			method: 'GET',
+			path: '/api/circulating',
+			handler: function(request, reply)
+			{
+				 return new Promise(function(accept, reject) {
+					 	got("http://insight.bithereum.network/insight-api/status").then(function(response) {
+					  		try {
+										var data = JSON.parse(response.body);
+										accept(data.info.circulating);
+								}
+								catch(e) {
+										accept(0);
+								}
+				 		});
+				});
+			}
+	});
+
+	server.route({
+			method: 'GET',
 			path: '/api/status',
 			handler: function(request, reply)
 			{
