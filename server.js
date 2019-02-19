@@ -55,18 +55,20 @@ var initialization = async function() {
 			method: 'GET',
 			path: '/api/circulating',
 			handler: function(request, reply)
-			{
-				 return new Promise(function(accept, reject) {
-					 	got("http://insight.bithereum.network/insight-api/status").then(function(response) {
-					  		try {
-										var data = JSON.parse(response.body);
-										accept(data.info.circulating);
-								}
-								catch(e) {
-										accept(0);
-								}
-				 		});
-				});
+			{	
+				// Temporarily return a fixed supply until insight finishes reindexing
+				return 24427762.5; 
+// 				 return new Promise(function(accept, reject) {
+// 					 	got("http://insight.bithereum.network/insight-api/status").then(function(response) {
+// 					  		try {
+// 										var data = JSON.parse(response.body);
+// 										accept(data.info.circulating);
+// 								}
+// 								catch(e) {
+// 										accept(0);
+// 								}
+// 				 		});
+// 				});
 			}
 	});
 
@@ -75,11 +77,13 @@ var initialization = async function() {
 			path: '/api/status',
 			handler: function(request, reply)
 			{
-				 return new Promise(function(accept, reject) {
-					 	got("http://insight.bithereum.network/insight-api/status").then(function(response) {
-					  		accept(response.body);
-				 		});
-				});
+				// Temporarily disabling until insight reindexes
+				return {};
+// 				 return new Promise(function(accept, reject) {
+// 					 	got("http://insight.bithereum.network/insight-api/status").then(function(response) {
+// 					  		accept(response.body);
+// 				 		});
+// 				});
 			}
 	});
 
