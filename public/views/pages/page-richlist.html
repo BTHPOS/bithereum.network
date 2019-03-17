@@ -1,0 +1,18 @@
+<ng-include src="'/views/pages/header.html'"></ng-include>
+<section data-name="richlist" ng-controller="RichlistController">
+    <div class="holder">
+          <h1>Richlist</h1>
+          <p>A complete list of the top <strong>100</strong> BTH holders. This list updates with every new block found.</p>
+          <table>
+              <tr>
+                  <th>ADDRESS</th>
+                  <th>BALANCE</th>
+              </tr>
+              <tr ng-repeat="entry in richlist">
+                  <td><a ng-href="//insight.bithereum.network/address/{{entry.address}}" target="_blank">{{entry.address}}</a></td>
+                  <td>{{entry.balance}}</td>
+              </tr>
+          </table>
+    </div>
+</section>
+<ng-include src="'/views/pages/footer.html'"></ng-include>

@@ -6,11 +6,11 @@
             <p>Bithereum aims to do what no other hard fork has done, by fusing the visions of both Bitcoin and Ethereum, ultimately revolutionizing mining, improving scalability, and increasing network consensus.</p>
             <button onclick="window.open('https://github.com/BTHPOS/BTH', '_blank')">Get Started</button>
         </div>
-        <div data-name="stats" class="holder" style="display:none;">
-            <div data-name="stat" data-type="fullnodes">
+        <div data-name="stats" class="holder">
+            <!-- <div data-name="stat" data-type="fullnodes">
                 <strong>0</strong>
                 <span>Full Nodes</span>
-            </div>
+            </div> -->
             <div data-name="stat" data-type="blockheight">
                 <strong>0</strong>
                 <span>Block Height</span>
@@ -44,7 +44,7 @@
             $.get("/api/status")
           ]).then(function(stats) {
               let data = JSON.parse(stats[0]);
-              $("div[data-type='fullnodes'] strong").html(data.info.connections);
+              // $("div[data-type='fullnodes'] strong").html(data.info.connections);
               $("div[data-type='blockheight'] strong").html(data.info.blocks);
               $("div[data-type='difficulty'] strong").html(data.info.difficulty.toFixed(1));
               $("div[data-type='circulating'] strong").html(data.info.circulating.toFixed(1));

@@ -12,6 +12,28 @@ var Handlerbars = require('handlebars');
 var HandlebarsLayouts = require('handlebars-layouts');
 HandlebarsLayouts.register(Handlerbars);
 
+// Initialize MySQL
+var mysql      = require('mysql');
+var pool = mysql.createPool({
+    connectionLimit : 10,
+    host     : 'chaindata.bithereum.network',
+    user     : 'root',
+    password : 'btcinnovations1923!',
+    database : 'chaindata'
+});
+
+// Query helper function
+let query = function(query, data, callback) {
+    pool.getConnection(function(err, connection) {
+         if (!err) {
+            connection.query(query, data, function (error, results, fields) {
+                connection.release();
+                if (typeof callback == "function") callback(error, results, fields);
+              });
+         }
+    });
+};
+
 // HTTP Server
 var server = Hapi.server({
 	 	port: 8000,
@@ -53,22 +75,41 @@ var initialization = async function() {
 
 	server.route({
 			method: 'GET',
+			path: '/api/richlist',
+			handler: function(request, reply)
+			{
+				 return new Promise(function(accept, reject) {
+					 	var LIMIT = request.query.limit;
+						LIMIT = LIMIT > 0 && LIMIT <= 10000 ? LIMIT : 100;
+					 	query("SELECT * FROM bth_addresses WHERE 1 ORDER BY balance DESC LIMIT " + LIMIT, {}, function(err, results, fields) {
+									if (err) accept({richlist:[]});
+									else {
+										let richlist = results.map(function(result) {
+											 	return {address:result.address, balance:result.balance}
+										});
+										accept({richlist:richlist});
+									}
+						});
+				});
+			}
+	});
+
+	server.route({
+			method: 'GET',
 			path: '/api/circulating',
 			handler: function(request, reply)
-			{	
-				// Temporarily return a fixed supply until insight finishes reindexing
-				return 24427762.5; 
-// 				 return new Promise(function(accept, reject) {
-// 					 	got("http://insight.bithereum.network/insight-api/status").then(function(response) {
-// 					  		try {
-// 										var data = JSON.parse(response.body);
-// 										accept(data.info.circulating);
-// 								}
-// 								catch(e) {
-// 										accept(0);
-// 								}
-// 				 		});
-// 				});
+			{
+				 return new Promise(function(accept, reject) {
+					 	got("http://insight.bithereum.network/insight-api/status").then(function(response) {
+					  		try {
+										var data = JSON.parse(response.body);
+										accept(data.info.circulating);
+								}
+								catch(e) {
+										accept(0);
+								}
+				 		});
+				});
 			}
 	});
 
@@ -77,13 +118,11 @@ var initialization = async function() {
 			path: '/api/status',
 			handler: function(request, reply)
 			{
-				// Temporarily disabling until insight reindexes
-				return {};
-// 				 return new Promise(function(accept, reject) {
-// 					 	got("http://insight.bithereum.network/insight-api/status").then(function(response) {
-// 					  		accept(response.body);
-// 				 		});
-// 				});
+				 return new Promise(function(accept, reject) {
+					 	got("http://insight.bithereum.network/insight-api/status").then(function(response) {
+					  		accept(response.body);
+				 		});
+				});
 			}
 	});
 

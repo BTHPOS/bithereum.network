@@ -1060,3 +1060,55 @@ section[data-name="resource-section"] div[data-name="subsection"] {
           section[data-name="resource-section"] div[data-name="subsection"] div[data-name="explorers"] div[data-name="explorer"] span span[data-status="available"],
           section[data-name="resource-section"] div[data-name="subsection"] div[data-name="explorers"] div[data-name="explorer"] span span[data-status="now-trading"] {
             background-color: #00FF1B; }
+
+section[data-name="richlist"] {
+  position: relative;
+  min-height: 80vh;
+  text-align: center;
+  padding: 3rem 0; }
+  section[data-name="richlist"] .holder {
+    width: 90%;
+    max-width: 64rem;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    z-index: 1; }
+    section[data-name="richlist"] .holder > h1 {
+      max-width: 40rem;
+      margin: 0 auto;
+      width: 90%;
+      font-family: 'Sarabun', sans-serif;
+      text-align: center;
+      color: #FFC345;
+      font-size: 2rem; }
+    section[data-name="richlist"] .holder > p {
+      max-width: 40rem;
+      margin: 1rem auto 4rem auto;
+      width: 90%;
+      font-family: 'Sarabun', sans-serif;
+      text-align: center;
+      line-height: 1.5;
+      font-size: 0.9rem; }
+      section[data-name="richlist"] .holder > p a {
+        color: #FFC345;
+        text-decoration: none;
+        opacity: 0.7;
+        font-family: 'Sarabun', sans-serif; }
+  section[data-name="richlist"] table {
+    width: 95%;
+    max-width: 40rem;
+    margin: 0 auto; }
+    section[data-name="richlist"] table a {
+      color: #FFC345;
+      background-color: rgba(43, 51, 60, 0.4);
+      padding: 0.5rem;
+      display: block; }
+    section[data-name="richlist"] table tr th:first-child, section[data-name="richlist"] table td:first-child {
+      text-align: left; }
+    section[data-name="richlist"] table tr th:last-child, section[data-name="richlist"] table td:last-child {
+      text-align: right; }
+    section[data-name="richlist"] table tr td:last-child {
+      font-weight: 300; }
+    @media (max-width: 45em) {
+      section[data-name="richlist"] table tr th, section[data-name="richlist"] table tr td {
+        font-size: 0.7rem; } }
