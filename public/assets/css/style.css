@@ -1112,3 +1112,92 @@ section[data-name="richlist"] {
     @media (max-width: 45em) {
       section[data-name="richlist"] table tr th, section[data-name="richlist"] table tr td {
         font-size: 0.7rem; } }
+
+section[data-name="addressconverter"] {
+  position: relative;
+  min-height: 80vh;
+  text-align: center;
+  padding: 3rem 0; }
+  section[data-name="addressconverter"] .holder {
+    width: 90%;
+    max-width: 64rem;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    z-index: 1; }
+    section[data-name="addressconverter"] .holder > h1 {
+      max-width: 40rem;
+      margin: 0 auto;
+      width: 90%;
+      font-family: 'Sarabun', sans-serif;
+      text-align: center;
+      color: #FFC345;
+      font-size: 2rem; }
+    section[data-name="addressconverter"] .holder > p {
+      max-width: 30rem;
+      margin: 1rem auto 1rem auto;
+      width: 90%;
+      font-family: 'Sarabun', sans-serif;
+      text-align: center;
+      line-height: 1.5;
+      font-size: 0.9rem; }
+      section[data-name="addressconverter"] .holder > p strong {
+        color: #FFC345; }
+      section[data-name="addressconverter"] .holder > p a {
+        color: #FFC345;
+        text-decoration: none;
+        opacity: 0.7;
+        font-family: 'Sarabun', sans-serif; }
+    section[data-name="addressconverter"] .holder .response {
+      margin: 4rem auto 3rem auto;
+      display: block; }
+      section[data-name="addressconverter"] .holder .response span {
+        font-size: 1rem;
+        margin: 0 auto 0.5rem auto;
+        display: block;
+        text-align: center;
+        font-size: 300; }
+      section[data-name="addressconverter"] .holder .response .bthaddress {
+        color: #FFC345;
+        background-color: rgba(43, 51, 60, 0.4);
+        padding: 0.5rem;
+        display: inline-block;
+        max-width: 30rem;
+        width: 95%;
+        margin: 0 auto 1rem auto;
+        font-size: 1.1rem;
+        text-decoration: none;
+        display: block; }
+      section[data-name="addressconverter"] .holder .response a {
+        color: #FFC345; }
+    section[data-name="addressconverter"] .holder input[type="text"] {
+      display: block;
+      max-width: 25rem;
+      width: 90%;
+      margin: 2rem auto 2rem auto;
+      border-radius: 0.5rem;
+      outline: none;
+      border: none;
+      padding: 0.8rem;
+      background: rgba(255, 255, 255, 0.9);
+      text-align: center; }
+    section[data-name="addressconverter"] .holder button, section[data-name="addressconverter"] .holder .button {
+      font-family: 'Sarabun', sans-serif;
+      font-weight: 500;
+      background-color: transparent;
+      color: #FFC345;
+      border: 0.05rem solid #FFC345;
+      padding: 0.6rem 2.5rem;
+      border-radius: 2rem;
+      outline: none;
+      cursor: pointer;
+      text-decoration: none; }
+      @media (max-width: 45em) {
+        section[data-name="addressconverter"] .holder button, section[data-name="addressconverter"] .holder .button {
+          text-align: center;
+          margin: 0 auto;
+          display: block;
+          max-width: 15rem; } }
+      section[data-name="addressconverter"] .holder button:hover, section[data-name="addressconverter"] .holder .button:hover {
+        color: #000000;
+        background-color: #FFC345; }

@@ -1,0 +1,15 @@
+<ng-include src="'/views/pages/header.html'"></ng-include>
+<section data-name="addressconverter" ng-controller="AddressConverterController">
+    <div class="holder">
+          <h1>Address Converter</h1>
+          <p>Convert your BTC address into a BTH address. BTC addresses start with a <strong>"1"</strong> while BTH addresses start with a <strong>"B"</strong>.</p>
+          <input type="text" ng-model="btcaddress" placeholder="Type BTC address here...">
+          <button ng-click="convert()">Convert</button>
+          <div class="response">
+            <span ng-show="message">{{message}}</span>
+            <span ng-show="bthaddress" class="bthaddress">{{bthaddress}}</span>
+            <a ng-show="bthaddress" bng-show="bthaddress" target="_blank" ng-href="//insight.bithereum.network/address/{{bthaddress}}">View on Explorer</a>
+          </div>
+    </div>
+</section>
+<ng-include src="'/views/pages/footer.html'"></ng-include>
