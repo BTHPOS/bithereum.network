@@ -254,6 +254,25 @@ var initialization = async function() {
 		}
 	});
 
+	server.route({
+		method: 'GET',
+		path: '/configurations/pool/testnet/dc/{number}',
+		handler: function(request, reply)
+		{
+				var content = [
+						"maxgputemp 85",
+						"globalminer lolminer",
+						"stratumproxy enabled",
+						"proxywallet THQdmn1rZHZoAevU2jRkLEKE9UfP74Ybpp",
+						"proxypool1 pool-testnet.bithereum.network:3858",
+						"lolminer=flags --profile ETHOS --usercfg /var/run/ethos/lolminer_config.json --overwritePersonal BethdPoW --coin AUTO144_5",
+						"flags --cl-global-work 8192 --farm-recheck 200",
+						"globalfan 85"
+				];
+				return reply.response(content.join("\n")).header('Content-Type', "text/plain");
+		}
+	});
+	
 	// Handles public file routing
 	server.route({
 	    method: 'GET',
