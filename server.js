@@ -6,6 +6,7 @@ var Hapi    = require('hapi');
 var Vision 	= require('vision');
 var Inert 	= require('inert');
 var got 		= require('got');
+var bitcoinjs = require("./public/assets/js/bitcoinjs/bitcoinjs.min.js");
 
 // Template Engine
 var Handlerbars = require('handlebars');
@@ -216,6 +217,39 @@ var initialization = async function() {
 		}
 	});
 
+  server.route({
+		method: 'GET',
+		path: '/api/convert/address',
+		handler: function(request, reply)
+		{
+        var address = "";
+        try {
+            var decoded = bitcoinjs.address.fromBase58Check(request.query.address);
+            var version = decoded['version']
+            switch (version) {
+              case 0:
+                version = 25;
+                break;
+              case 25:
+                version = 0;
+                break;
+              case 5:
+                version = 40;
+                break;
+              case 40:
+                version = 5;
+                break;
+              default:
+                break;
+            }
+            if (version) address = bitcoinjs.address.toBase58Check(decoded['hash'], version);
+        }
+        catch(e) {
+        }
+        return {address:address};
+		}
+	});
+
 	server.route({
 		method: 'GET',
 		path: '/redeem/trezor',
@@ -233,7 +267,6 @@ var initialization = async function() {
 				return reply.redirect("https://docs.google.com/forms/d/e/1FAIpQLSfETri1L8RMeq9EWfCYTRIROu68-A1tSbQyVuKP-zbREwNvzQ/viewform");
 		}
 	});
-
 
 	server.route({
 		method: 'GET',
@@ -272,7 +305,7 @@ var initialization = async function() {
 				return reply.response(content.join("\n")).header('Content-Type', "text/plain");
 		}
 	});
-	
+
 	// Handles public file routing
 	server.route({
 	    method: 'GET',
