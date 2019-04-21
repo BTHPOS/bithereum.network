@@ -29,6 +29,9 @@ config(['$locationProvider', '$interpolateProvider', '$routeProvider', function(
       .when("/address-converter", {
           templateUrl : "/views/pages/page-addressconverter.html"
       })
+      .when("/key-converter", {
+          templateUrl : "/views/pages/page-keyconverter.html"
+      })
 }])
 
 .run(['$rootScope', '$anchorScroll', function($rootScope, $anchorScroll) {

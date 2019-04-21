@@ -1466,3 +1466,101 @@ section[data-name="addressconverter"] {
     }
 
 }
+
+section[data-name="keyconverter"] {
+
+    div[data-name="page"] {
+        max-width: 35rem;
+        width: 90%;
+        margin: 0rem auto;
+        display: block;
+        h1 {
+          text-align: center;
+        }
+        & > p:not(.notes) {
+          text-align: center;
+          line-height: 1.5;
+          margin-bottom: 2rem;
+        }
+
+        .notes {
+          background-color: #FFC500;
+          padding: 0.5rem;
+          box-sizing: border-box;
+          color: #000000;
+          font-size: 0.85rem;
+          line-height: 1.5;
+          border-radius: 0.5rem;
+          a {
+            font-weight: 700;
+            text-decoration: none;
+            color: #000000;
+          }
+        }
+    }
+    input[type="text"] {
+      display: block;
+      width: 100%;
+      margin: 2rem auto 0.5rem auto;
+      border-radius: 0.5rem;
+      outline: none;
+      border: none;
+      padding: 0.8rem;
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      box-sizing: border-box;
+    }
+    label {
+      color: #FFFFFF;
+      margin-bottom: 2rem;
+      margin-left: 0.5rem;
+    }
+    button {
+      cursor: pointer;
+      display: block;
+      margin: 1rem auto 3rem auto;
+      width: 13rem;
+      border: 0.05rem solid #FFC500;
+      color: #FFC500;
+      border-radius: 1.5rem;
+      padding: 0.7rem 2rem;
+      font-size: 0.9rem;
+      background-color: transparent;
+      outline: none;
+    }
+    button:hover {
+      background-color: #FFC500;
+      color: #000000;
+    }
+    div[data-name="outputs"] {
+        max-width: 35rem;
+        margin: 1rem auto;
+    }
+    div[data-name="output"] {
+        margin-bottom: 3rem;
+    }
+    div[data-name="output"] strong {
+        color: #FFFFFF;
+        margin: 0 0 0.5rem 0;
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    div[data-name="output"] span {
+        padding: 1rem 0.5rem;
+        text-align: center;
+        font-weight: 300;
+        font-size: 0.9rem;
+        background-color: rgba(255,255,255,0.08);
+        border-bottom: 0.1rem solid rgba(255, 197, 0, 1);
+        color: #FFFFFF;
+        width: 100%;
+        box-sizing: border-box;
+        display: block;
+        word-break: break-all;
+    }
+    .hide {
+      display: none;
+    }
+}

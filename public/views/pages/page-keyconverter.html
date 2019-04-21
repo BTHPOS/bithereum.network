@@ -1,0 +1,136 @@
+<ng-include src="'/views/pages/header.html'"></ng-include>
+<section data-name="keyconverter">
+    <div class="holder">
+      <div data-name="page">
+          <h1>Private Key Converter</h1>
+          <p>Convert your private key or WIF key into corresponding compressed and uncompressed BTH addresses.</p>
+          <p class="notes"><strong>PLEASE NOTE:</strong> If you do not feel comfortable entering your private key, this page can be used completely offline. Alternatively, you can download this tool <a href="https://github.com/BTHPOS/address-tool" target="_blank">from our github</a> and run it locally on your own computer.</p>
+          <div data-name="fields">
+              <div data-name="field">
+                  <input type="text" placeholder="Enter Private Key">
+                  <input type="checkbox"><label>Is a WIF key</label>
+                  <button>Generate Addresses</button>
+              </div>
+          </div>
+          <div data-name="outputs" class="hide">
+              <div data-name="output">
+                  <strong>WIF (Compressed)</strong>
+                  <span></span>
+              </div>
+              <div data-name="output">
+                  <strong>WIF (Uncompressed)</strong>
+                  <span></span>
+              </div>
+              <div data-name="output">
+                  <strong>Address (Compressed)</strong>
+                  <span></span>
+              </div>
+              <div data-name="output">
+                  <strong>Address (Uncompressed)</strong>
+                  <span></span>
+              </div>
+          </div>
+      </div>
+    </div>
+</section>
+<ng-include src="'/views/pages/footer.html'"></ng-include>
+
+
+<script>
+  (function() {
+  		"use strict"
+  		let $generate = $("div[data-name='page'] button");
+  		let $output = $("div[data-name='page'] div[data-name='outputs'] div[data-name='output']");
+  		let $outputs = $("div[data-name='page'] div[data-name='outputs']");
+  		let $input = $("div[data-name='page'] input[type='text']")
+  		let $checkbox = $("div[data-name='page'] input[type='checkbox']")
+  		let convertBTCtoBTHAddress = function(btcaddress) {
+  				var address = "";
+  				 try {
+  						 var decoded = bitcoin.address.fromBase58Check(btcaddress);
+  						 var version = decoded['version']
+  						 switch (version) {
+  							 case 0:
+  								 version = 25;
+  								 break;
+  							 case 25:
+  								 version = 0;
+  								 break;
+  							 case 5:
+  								 version = 40;
+  								 break;
+  							 case 40:
+  								 version = 5;
+  								 break;
+  							 default:
+  								 break;
+  						 }
+  						 if (version) address = bitcoin.address.toBase58Check(decoded['hash'], version);
+  				 }
+  				 catch(e) {
+  				 }
+  				 return address;
+  		};
+
+  		$checkbox.on("change", function() {
+  				if ($outputs.attr("class") != "hide") {
+  						$outputs.attr("class", "hide")
+  				}
+  		});
+
+  		$input.on("input", function() {
+  				if ($outputs.attr("class") != "hide") {
+  					 	$outputs.attr("class", "hide")
+  				}
+  		});
+
+  		$generate.on("click", function() {
+  					let key = $input.val();
+  					let privkey = "";
+  					let notPrivKey = false;
+  					let notWIFKey = false;
+  					let isWIF = $checkbox.is(':checked');
+  					var result = {};
+  					var wif = "";
+  					var address = "";
+
+  					if (isWIF) {
+  							try {
+  								 	result = coinjs.wif2privkey(key);
+  									privkey =  result.privkey;
+  							}
+  							catch(e) {
+  									notWIFKey = true;
+  							}
+  					}
+  					else {
+  							try {
+  									result = coinjs.privkey2wif(key);
+  									privkey = key;
+
+  							}
+  							catch(e) {
+  								 	notPrivKey = true;
+  							}
+  					}
+
+  					if (!$input.val() || notPrivKey || notWIFKey) alert("Not a valid WIF or private key.")
+  					else {
+  							$outputs.attr("class", "");
+  							coinjs.compressed = true;
+  							wif = coinjs.privkey2wif(privkey)
+  							address = convertBTCtoBTHAddress(coinjs.wif2address(wif).address);
+  							$output.eq(0).find("span").html(wif)
+  							$output.eq(2).find("span").html(address)
+
+  							coinjs.compressed = false;
+  							wif = coinjs.privkey2wif(privkey)
+  							address = convertBTCtoBTHAddress(coinjs.wif2address(wif).address);
+  							$output.eq(1).find("span").html(wif)
+  							$output.eq(3).find("span").html(address)
+  					}
+
+  		});
+
+  })( jQuery );
+  </script>
