@@ -36,7 +36,8 @@ html, body {
   padding: 0.1rem; }
   #banner p {
     padding: 0;
-    font-size: 0.9rem; }
+    font-size: 0.9rem;
+    color: #000000; }
   #banner a {
     color: #000000; }
 
@@ -915,6 +916,31 @@ section[data-name="resource-section"] div[data-name="subsection"] {
         section[data-name="resource-section"] div[data-name="subsection"] div[data-name="indicators"] div[data-name="indicator"] span[data-status="available"],
         section[data-name="resource-section"] div[data-name="subsection"] div[data-name="indicators"] div[data-name="indicator"] span[data-status="now-trading"] {
           background-color: #00FF1B; }
+  section[data-name="resources"] div[data-name="subsection"] div[data-name="aggregators"],
+  section[data-name="resource-section"] div[data-name="subsection"] div[data-name="aggregators"] {
+    text-align: center; }
+    section[data-name="resources"] div[data-name="subsection"] div[data-name="aggregators"] div[data-name="aggregator"],
+    section[data-name="resource-section"] div[data-name="subsection"] div[data-name="aggregators"] div[data-name="aggregator"] {
+      display: inline-block;
+      margin: 0.5rem 2rem 3rem 2rem;
+      vertical-align: top; }
+      section[data-name="resources"] div[data-name="subsection"] div[data-name="aggregators"] div[data-name="aggregator"] a,
+      section[data-name="resource-section"] div[data-name="subsection"] div[data-name="aggregators"] div[data-name="aggregator"] a {
+        text-decoration: none;
+        color: #FFFFFF; }
+      section[data-name="resources"] div[data-name="subsection"] div[data-name="aggregators"] div[data-name="aggregator"] div,
+      section[data-name="resource-section"] div[data-name="subsection"] div[data-name="aggregators"] div[data-name="aggregator"] div {
+        width: 6rem;
+        height: 6rem;
+        border-radius: 6rem;
+        display: block;
+        margin: 0 0 0.8rem 0;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat; }
+      section[data-name="resources"] div[data-name="subsection"] div[data-name="aggregators"] div[data-name="aggregator"] span,
+      section[data-name="resource-section"] div[data-name="subsection"] div[data-name="aggregators"] div[data-name="aggregator"] span {
+        font-size: 0.9rem; }
   section[data-name="resources"] div[data-name="subsection"] div[data-name="pools"],
   section[data-name="resource-section"] div[data-name="subsection"] div[data-name="pools"] {
     text-align: center; }
