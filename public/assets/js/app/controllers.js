@@ -10,6 +10,9 @@ angular.module('Application.Controllers', [])
         });
 }])
 
+.controller("ShirtController", ["$scope", "$timeout", function($scope, $timeout) {
+}])
+
 .controller("AddressConverterController", ["$scope", "$timeout", function($scope, $timeout) {
       $scope.convert = function() {
           $scope.bthaddress = "";

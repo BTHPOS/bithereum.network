@@ -26,6 +26,9 @@ config(['$locationProvider', '$interpolateProvider', '$routeProvider', function(
       .when("/resources", {
           templateUrl : "/views/pages/page-resources.html"
       })
+      .when("/shirts", {
+          templateUrl : "/views/pages/page-shirts.html"
+      })
       .when("/address-converter", {
           templateUrl : "/views/pages/page-addressconverter.html"
       })

@@ -1386,6 +1386,69 @@ section[data-name="richlist"] {
     }
 }
 
+section[data-name="shirts"] {
+    position: relative;
+    min-height: 80vh;
+    text-align: center;
+    padding: 3rem 0;
+
+    .holder {
+      width: 90%;
+      max-width: 64rem;
+      margin: 0 auto;
+      display: block;
+      position: relative;
+      z-index: 1;
+
+      & > h1 {
+        max-width: 40rem;
+        margin: 0 auto;
+        width: 90%;
+        font-family: 'Sarabun', sans-serif;
+        text-align: center;
+        color: #FFC345;
+        font-size: 2rem;
+      }
+
+      & > p {
+        max-width: 40rem;
+        margin: 1rem auto 4rem auto;
+        width: 90%;
+        font-family: 'Sarabun', sans-serif;
+        text-align: center;
+        line-height: 1.5;
+        font-size: 0.9rem;
+        a {
+          color: #FFC345;
+          text-decoration: none;
+          opacity: 0.7;
+          font-family: 'Sarabun', sans-serif;
+        }
+      }
+    }
+
+    form {
+        background-color: rgba(0,0,0,0.2);
+        color: black;
+        padding: 2rem 4rem;
+        max-width: 40rem;
+        margin: 0 auto;
+        text-align: center;
+    }
+    table {
+      margin: 0 auto;
+      width: 100%;
+      color: #FFF;
+      text-align: left;
+      td  input, td select {
+        margin:  0 0 2rem 0;
+        width: 100%;
+        padding: 0.3rem 1rem;
+        box-sizing: border-box;
+      }
+    }
+}
+
 section[data-name="addressconverter"] {
     position: relative;
     min-height: 80vh;

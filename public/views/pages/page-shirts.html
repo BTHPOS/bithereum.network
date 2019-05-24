@@ -1,0 +1,46 @@
+<ng-include src="'/views/pages/header.html'"></ng-include>
+<section data-name="shirts" ng-controller="ShirtController">
+    <div class="holder">
+          <h1>Bithereum Shirts</h1>
+          <p>Use the following form to order your Bithereum shirt. If you have any questions or would to receive your tracking number, please feel free to contact an admin on the <a href="https://t.me/BithereumNetwork" target="_blank">Bithereum telegram</a>.</p>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_xclick">
+              <input type="hidden" name="business" value="sachit57@gmail.com">
+              <input type="hidden" name="lc" value="US">
+              <input type="hidden" name="item_name" value="Bithereum Shirt">
+              <input type="hidden" name="button_subtype" value="services">
+              <input type="hidden" name="no_note" value="0">
+              <input type="hidden" name="currency_code" value="USD">
+              <input type="hidden" name="shipping" value="8.00">
+              <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+              <table>
+              <tr><td><input type="hidden" name="on0" value="Quantity">Quantity</td></tr><tr><td><select name="os0">
+              	<option value="1 Shirt">1 Shirt $4.00 USD</option>
+              	<option value="2 Shirts">2 Shirts $8.00 USD</option>
+              	<option value="3 Shirts">3 Shirts $12.00 USD</option>
+              	<option value="4 Shirts">4 Shirts $16.00 USD</option>
+              	<option value="5 Shirts">5 Shirts $20.00 USD</option>
+              </select> </td></tr>
+              <tr><td><input type="hidden" name="on1" value="Sizes">Sizes</td></tr><tr><td><select name="os1">
+              	<option value="L">L </option>
+              	<option value="XL">XL </option>
+              </select> </td></tr>
+              <tr><td><input type="hidden" name="on2" value="Full Shipping Address">Full Shipping Address</td></tr><tr><td><input type="text" name="os2" maxlength="200"></td></tr>
+              </table>
+              <input type="hidden" name="option_select0" value="1 Shirt">
+              <input type="hidden" name="option_amount0" value="4.00">
+              <input type="hidden" name="option_select1" value="2 Shirts">
+              <input type="hidden" name="option_amount1" value="8.00">
+              <input type="hidden" name="option_select2" value="3 Shirts">
+              <input type="hidden" name="option_amount2" value="12.00">
+              <input type="hidden" name="option_select3" value="4 Shirts">
+              <input type="hidden" name="option_amount3" value="16.00">
+              <input type="hidden" name="option_select4" value="5 Shirts">
+              <input type="hidden" name="option_amount4" value="20.00">
+              <input type="hidden" name="option_index" value="0">
+              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+          </form>
+    </div>
+</section>
+<ng-include src="'/views/pages/footer.html'"></ng-include>

@@ -1139,6 +1139,57 @@ section[data-name="richlist"] {
       section[data-name="richlist"] table tr th, section[data-name="richlist"] table tr td {
         font-size: 0.7rem; } }
 
+section[data-name="shirts"] {
+  position: relative;
+  min-height: 80vh;
+  text-align: center;
+  padding: 3rem 0; }
+  section[data-name="shirts"] .holder {
+    width: 90%;
+    max-width: 64rem;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    z-index: 1; }
+    section[data-name="shirts"] .holder > h1 {
+      max-width: 40rem;
+      margin: 0 auto;
+      width: 90%;
+      font-family: 'Sarabun', sans-serif;
+      text-align: center;
+      color: #FFC345;
+      font-size: 2rem; }
+    section[data-name="shirts"] .holder > p {
+      max-width: 40rem;
+      margin: 1rem auto 4rem auto;
+      width: 90%;
+      font-family: 'Sarabun', sans-serif;
+      text-align: center;
+      line-height: 1.5;
+      font-size: 0.9rem; }
+      section[data-name="shirts"] .holder > p a {
+        color: #FFC345;
+        text-decoration: none;
+        opacity: 0.7;
+        font-family: 'Sarabun', sans-serif; }
+  section[data-name="shirts"] form {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: black;
+    padding: 2rem 4rem;
+    max-width: 40rem;
+    margin: 0 auto;
+    text-align: center; }
+  section[data-name="shirts"] table {
+    margin: 0 auto;
+    width: 100%;
+    color: #FFF;
+    text-align: left; }
+    section[data-name="shirts"] table td input, section[data-name="shirts"] table td select {
+      margin: 0 0 2rem 0;
+      width: 100%;
+      padding: 0.3rem 1rem;
+      box-sizing: border-box; }
+
 section[data-name="addressconverter"] {
   position: relative;
   min-height: 80vh;
