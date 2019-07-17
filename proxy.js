@@ -9,3 +9,4 @@ var proxy = require('redbird')({
 });
 
 proxy.register("bithereum.network", "http://localhost:8000", {ssl: true});
+proxy.register("node.bithereum.network", "http://localhost:8002", {ssl: true});
