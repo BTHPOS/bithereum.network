@@ -1051,6 +1051,69 @@ section[data-name="resources"] {
   }
 }
 
+section[data-name="pouinformation"] {
+  position: relative;
+  padding: 3rem 0 0 0;
+
+  .holder {
+      width: 90%;
+      max-width: 45rem;
+      margin: 0 auto;
+      display: block;
+      position: relative;
+      z-index: 1;
+
+      & > h1 {
+        max-width: 40rem;
+        margin: 0 auto;
+        width: 90%;
+        font-family: 'Sarabun', sans-serif;
+        text-align: center;
+        color: #FFC345;
+        font-size: 2rem;
+      }
+
+      p {
+        max-width: 40rem;
+        margin: 1rem auto 2rem auto;
+        width: 90%;
+        font-family: 'Sarabun', sans-serif;
+        text-align: center;
+        line-height: 1.5;
+        font-size: 0.9rem;
+        a {
+          color: #FFC345;
+          text-decoration: none;
+          opacity: 0.7;
+          font-family: 'Sarabun', sans-serif;
+        }
+      }
+  }
+
+  div[data-name="logo"] {
+      position: absolute;
+      z-index: 0;
+      width: 35rem;
+      height: 50rem;
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url(/assets/images/big-logo.png);
+      left: 50%;
+      margin-left: -17.5rem;
+      top: 5rem;
+
+      @media (max-width: $mobileWidth) {
+         width: 80%;
+         margin-left: -40%;
+      }
+  }
+
+  div[data-name="subsection"] {
+    border-top: none!important;
+  }
+}
+
 section[data-name="resources"],
 section[data-name="resource-section"] {
   .holder {
