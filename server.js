@@ -320,10 +320,10 @@ var initialization = async function() {
 	});
 
 	// Attempt to start the HTTP Server
-	try { console.log('starting');
+	try {
 			await server.start();
 	} 
-	catch (err) { console.log(err)
+	catch (err) {
 			process.exit(1);
 	}
 };
