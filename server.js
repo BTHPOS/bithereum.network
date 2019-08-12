@@ -1,3 +1,4 @@
+
 // Dependencies
 var Boom    = require('boom');
 var Joi     = require('joi');
@@ -37,7 +38,7 @@ let query = function(query, data, callback) {
 
 // HTTP Server
 var server = Hapi.server({
-	 	port: 8000,
+	 	port: 8003,
 	  routes: {
 			cors: {
 				credentials: true
@@ -319,10 +320,10 @@ var initialization = async function() {
 	});
 
 	// Attempt to start the HTTP Server
-	try {
+	try { console.log('starting');
 			await server.start();
-	}
-	catch (err) {
+	} 
+	catch (err) { console.log(err)
 			process.exit(1);
 	}
 };
