@@ -13,16 +13,6 @@ var Handlerbars = require('handlebars');
 var HandlebarsLayouts = require('handlebars-layouts');
 HandlebarsLayouts.register(Handlerbars);
 
-// Initialize MySQL
-var mysql      = require('mysql');
-var pool = mysql.createPool({
-    connectionLimit : 10,
-    host     : '',
-    user     : '',
-    password : '',
-    database : ''
-});
-
 // Query helper function
 let query = function(query, data, callback) {
     pool.getConnection(function(err, connection) {
