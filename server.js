@@ -79,19 +79,7 @@ var initialization = async function() {
 			path: '/api/richlist',
 			handler: function(request, reply)
 			{
-				 return new Promise(function(accept, reject) {
-					 	var LIMIT = request.query.limit;
-						LIMIT = LIMIT > 0 && LIMIT <= 10000 ? LIMIT : 100;
-					 	query("SELECT * FROM bth_addresses WHERE 1 ORDER BY balance DESC LIMIT " + LIMIT, {}, function(err, results, fields) {
-									if (err) accept({richlist:[]});
-									else {
-										let richlist = results.map(function(result) {
-											 	return {address:result.address, balance:result.balance}
-										});
-										accept({richlist:richlist});
-									}
-						});
-				});
+				    return {richlist: []};
 			}
 	});
 
@@ -101,7 +89,7 @@ var initialization = async function() {
 			handler: function(request, reply)
 			{
 				 return new Promise(function(accept, reject) {
-					 	got("http://insight.bithereum.network/insight-api/status").then(function(response) {
+					 	got("http://insight-explorer.bithereum.network/insight-api/status").then(function(response) {
 					  		try {
 										var data = JSON.parse(response.body);
 										accept(data.info.circulating);
@@ -120,7 +108,7 @@ var initialization = async function() {
 			handler: function(request, reply)
 			{
 				 return new Promise(function(accept, reject) {
-					 	got("http://insight2.bithereum.network/insight-api/status").then(function(response) {
+					 	got("http://insight-explorer.bithereum.network/insight-api/status").then(function(response) {
 					  		accept(response.body);
 				 		});
 				});
