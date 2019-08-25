@@ -79,7 +79,7 @@ var initialization = async function() {
 			handler: function(request, reply)
 			{
 				 return new Promise(function(accept, reject) {
-					 	got("http://insight-explorer.bithereum.network/insight-api/status").then(function(response) {
+					 	got("http://insight-explorer.bithereum.network:3001/insight-api/status").then(function(response) {
 					  		try {
 										var data = JSON.parse(response.body);
 										accept(data.info.circulating);
@@ -98,7 +98,7 @@ var initialization = async function() {
 			handler: function(request, reply)
 			{
 				 return new Promise(function(accept, reject) {
-					 	got("http://insight-explorer.bithereum.network/insight-api/status").then(function(response) {
+					 	got("http://insight-explorer.bithereum.network:3001/insight-api/status").then(function(response) {
 					  		accept(response.body);
 				 		});
 				});
