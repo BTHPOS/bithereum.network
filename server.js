@@ -86,7 +86,7 @@ var initialization = async function() {
 			handler: function(request, reply)
 			{
 				 return new Promise(function(accept, reject) {
-					 	got("http://insight.bithereum.network/insight-api/status"").then(function(response) {
+					 	got("http://insight.bithereum.network/insight-api/status").then(function(response) {
 					  		accept(response.body);
 				 		});
 				});
