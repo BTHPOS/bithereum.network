@@ -13,18 +13,6 @@ var Handlerbars = require('handlebars');
 var HandlebarsLayouts = require('handlebars-layouts');
 HandlebarsLayouts.register(Handlerbars);
 
-// Query helper function
-let query = function(query, data, callback) {
-    pool.getConnection(function(err, connection) {
-         if (!err) {
-            connection.query(query, data, function (error, results, fields) {
-                connection.release();
-                if (typeof callback == "function") callback(error, results, fields);
-              });
-         }
-    });
-};
-
 // HTTP Server
 var server = Hapi.server({
 	 	port: 8000,
